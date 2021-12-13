@@ -1,45 +1,59 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
+	"io/ioutil"
 	"log"
-	"os"
 	"strconv"
+	"strings"
 )
 
+func sum(ints []int) int {
+	result := 0
+
+	for _, v := range ints {
+		result += v
+	}
+
+	return result
+}
+
+func getWindowSum(items []int, idx int) int {
+	length := len(items)
+
+	if length < idx+3 {
+		return 0
+	}
+
+	return sum(items[idx : idx+3])
+}
+
 func main() {
-	file, err := os.Open("1-1.input")
-	defer file.Close()
+	bcontent, err := ioutil.ReadFile("1-1.input")
 
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	prev := -1
-	curr := -1
+	content := string(bcontent)
+	sitems := strings.Split(content, "\n")
+
+	items := []int{}
+
+	for _, v := range sitems {
+		cast, _ := strconv.Atoi(v)
+		items = append(items, cast)
+	}
+
 	inc := 0
 
-	scanner := bufio.NewScanner(file)
+	for idx, _ := range items {
+		a := getWindowSum(items, idx)
+		b := getWindowSum(items, idx+1)
 
-	for scanner.Scan() {
-		curr, err = strconv.Atoi(scanner.Text())
-
-		if err != nil {
-			fmt.Printf("%s is not an integer: %v", scanner.Text(), err)
-			return
-		}
-
-		if prev == -1 {
-			prev = curr
-			continue
-		}
-
-		if curr > prev {
+		if b > a {
 			inc++
 		}
-
-		prev = curr
 	}
 
 	fmt.Printf("%d increases found\n", inc)
