@@ -29,7 +29,7 @@ func getWindowSum(items []int, idx int) int {
 }
 
 func main() {
-	bcontent, err := ioutil.ReadFile("1-1.input")
+	bcontent, err := ioutil.ReadFile("1.input")
 
 	if err != nil {
 		log.Fatal(err)
