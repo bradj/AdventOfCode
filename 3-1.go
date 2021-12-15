@@ -18,8 +18,6 @@ func main() {
 
 	scanner := bufio.NewScanner(file)
 
-	scanner.Scan()
-
 	var bitcounter [12][2]int
 
 	for scanner.Scan() {
