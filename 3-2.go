@@ -27,13 +27,13 @@ func cull(items []string, focusIdx int, getMost bool) []string {
 	}
 
 	if getMost {
-		if len(ones) > len(zeros) || len(ones) == len(zeros) {
+		if len(ones) >= len(zeros) {
 			return ones
 		}
 
 		return zeros
 	} else {
-		if len(ones) > len(zeros) || len(ones) == len(zeros) {
+		if len(ones) >= len(zeros) {
 			return zeros
 		}
 
