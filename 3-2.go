@@ -9,6 +9,10 @@ import (
 )
 
 func cull(items []string, focusIdx int, getMost bool) []string {
+	if len(items) == 1 {
+		return items
+	}
+
 	ones := []string{}
 	zeros := []string{}
 
@@ -28,21 +32,20 @@ func cull(items []string, focusIdx int, getMost bool) []string {
 
 	if getMost {
 		if len(ones) >= len(zeros) {
-			return ones
+			return cull(ones, focusIdx+1, getMost)
 		}
 
-		return zeros
+		return cull(zeros, focusIdx+1, getMost)
 	} else {
 		if len(ones) >= len(zeros) {
-			return zeros
+			return cull(zeros, focusIdx+1, getMost)
 		}
 
-		return ones
+		return cull(ones, focusIdx+1, getMost)
 	}
 }
 
 func main() {
-	// bcontent, err := ioutil.ReadFile("3.input")
 	bcontent, err := ioutil.ReadFile("3.input")
 
 	if err != nil {
@@ -53,20 +56,7 @@ func main() {
 	items := strings.Split(content, "\n")
 
 	o2items := cull(items, 0, true)
-	idx := 1
-
-	for len(o2items) > 1 {
-		o2items = cull(o2items, idx, true)
-		idx++
-	}
-
 	co2items := cull(items, 0, false)
-	idx = 1
-
-	for len(co2items) > 1 {
-		co2items = cull(co2items, idx, false)
-		idx++
-	}
 
 	fmt.Printf("o2 - %v\nco2 - %v\n", o2items, co2items)
 	o2, _ := strconv.ParseInt(o2items[0], 2, 32)
