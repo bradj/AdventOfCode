@@ -8,16 +8,6 @@ import (
 	"strings"
 )
 
-func sum(ints []int) int {
-	result := 0
-
-	for _, v := range ints {
-		result += v
-	}
-
-	return result
-}
-
 func getWindowSum(items []int, idx int) int {
 	length := len(items)
 
@@ -28,7 +18,7 @@ func getWindowSum(items []int, idx int) int {
 	return sum(items[idx : idx+3])
 }
 
-func main() {
+func d1() {
 	bcontent, err := ioutil.ReadFile("1.input")
 
 	if err != nil {

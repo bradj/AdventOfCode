@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-func main() {
+func d2p1() {
 	bcontent, err := ioutil.ReadFile("2.input")
 
 	if err != nil {

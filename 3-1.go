@@ -7,7 +7,7 @@ import (
 	"strconv"
 )
 
-func main() {
+func d3p1() {
 	file, err := os.Open("3.input")
 
 	if err != nil {

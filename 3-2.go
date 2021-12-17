@@ -45,7 +45,7 @@ func cull(items []string, focusIdx int, getMost bool) []string {
 	}
 }
 
-func main() {
+func d3p2() {
 	bcontent, err := ioutil.ReadFile("3.input")
 
 	if err != nil {
