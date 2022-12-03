@@ -1,6 +1,8 @@
 package util
 
 import (
+	"log"
+	"os"
 	"strconv"
 	"strings"
 )
@@ -23,4 +25,15 @@ func Sum(ints []int) int {
 	}
 
 	return result
+}
+
+func GetItems(filename string) []string {
+	bcontent, err := os.ReadFile(filename)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	content := string(bcontent)
+	return strings.Split(content, "\n")
 }
