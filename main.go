@@ -5,41 +5,55 @@ import (
 	"os"
 
 	twentyone "github.com/bradj/AdventOfCode/2021"
+	twentytwo "github.com/bradj/AdventOfCode/2022"
 	"github.com/bradj/AdventOfCode/util"
 )
 
-func main() {
-	day := util.Intme(os.Args[1])
-	part := util.Intme(os.Args[2])
-
-	fmt.Printf("running day %d part %d\n", day, part)
-
+func year21(day int, part int) {
 	switch day {
 	case 1:
 		twentyone.D1()
-
-		break
 	case 2:
 		if part == 1 {
 			twentyone.D2p1()
 		} else {
 			twentyone.D2p2()
 		}
-
-		break
 	case 3:
 		if part == 1 {
 			twentyone.D3p1()
 		} else {
 			twentyone.D3p2()
 		}
-
-		break
 	case 4:
 		twentyone.D4()
-
-		break
 	default:
 		fmt.Printf("day %d part %d not found\n", day, part)
+	}
+}
+
+func year22(day int, part int) {
+	switch day {
+	case 1:
+		twentytwo.D1p2()
+	default:
+		fmt.Printf("day %d part %d not found\n", day, part)
+	}
+}
+
+func main() {
+	year := util.Intme(os.Args[1])
+	day := util.Intme(os.Args[2])
+	part := util.Intme(os.Args[3])
+
+	fmt.Printf("running year %d day %d part %d\n", year, day, part)
+
+	switch year {
+	case 2021:
+		year21(day, part)
+	case 2022:
+		year22(day, part)
+	default:
+		fmt.Printf("year %d not found\n", year)
 	}
 }
