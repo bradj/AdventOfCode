@@ -2,8 +2,8 @@ package twentyone
 
 import (
 	"fmt"
-	"io/ioutil"
 	"log"
+	"os"
 	"strconv"
 	"strings"
 )
@@ -46,7 +46,7 @@ func cull(items []string, focusIdx int, getMost bool) []string {
 }
 
 func D3p2() {
-	bcontent, err := ioutil.ReadFile("3.input")
+	bcontent, err := os.ReadFile("3.input")
 
 	if err != nil {
 		log.Fatal(err)

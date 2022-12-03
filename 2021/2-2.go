@@ -2,14 +2,14 @@ package twentyone
 
 import (
 	"fmt"
-	"io/ioutil"
 	"log"
+	"os"
 	"strconv"
 	"strings"
 )
 
 func D2p2() {
-	bcontent, err := ioutil.ReadFile("2.input")
+	bcontent, err := os.ReadFile("2.input")
 
 	if err != nil {
 		log.Fatal(err)
@@ -43,14 +43,10 @@ func D2p2() {
 			if aim != 0 {
 				y += inc * aim
 			}
-
-			break
 		case "down":
 			aim += inc
-			break
 		case "up":
 			aim -= inc
-			break
 		}
 	}
 

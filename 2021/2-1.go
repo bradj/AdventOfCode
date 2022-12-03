@@ -2,14 +2,14 @@ package twentyone
 
 import (
 	"fmt"
-	"io/ioutil"
 	"log"
+	"os"
 	"strconv"
 	"strings"
 )
 
 func D2p1() {
-	bcontent, err := ioutil.ReadFile("2.input")
+	bcontent, err := os.ReadFile("2.input")
 
 	if err != nil {
 		log.Fatal(err)
@@ -38,13 +38,10 @@ func D2p1() {
 		switch instruction[0] {
 		case "forward":
 			x += inc
-			break
 		case "down":
 			y += inc
-			break
 		case "up":
 			y -= inc
-			break
 		}
 	}
 

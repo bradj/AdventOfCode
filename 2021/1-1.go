@@ -39,7 +39,7 @@ func D1() {
 
 	inc := 0
 
-	for idx, _ := range items {
+	for idx := range items {
 		a := getWindowSum(items, idx)
 		b := getWindowSum(items, idx+1)
 
