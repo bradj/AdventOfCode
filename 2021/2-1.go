@@ -1,4 +1,4 @@
-package main
+package twentyone
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-func d2p1() {
+func D2p1() {
 	bcontent, err := ioutil.ReadFile("2.input")
 
 	if err != nil {

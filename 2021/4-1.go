@@ -1,4 +1,4 @@
-package main
+package twentyone
 
 import (
 	"bufio"
@@ -68,7 +68,7 @@ func (b *Board) IsBingo(g int) bool {
 	return false
 }
 
-func d4() {
+func D4() {
 	file, err := os.Open("4.input")
 
 	if err != nil {

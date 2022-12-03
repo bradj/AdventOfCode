@@ -1,4 +1,4 @@
-package main
+package twentyone
 
 import (
 	"fmt"
@@ -45,7 +45,7 @@ func cull(items []string, focusIdx int, getMost bool) []string {
 	}
 }
 
-func d3p2() {
+func D3p2() {
 	bcontent, err := ioutil.ReadFile("3.input")
 
 	if err != nil {

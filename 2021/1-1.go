@@ -1,9 +1,9 @@
-package main
+package twentyone
 
 import (
 	"fmt"
-	"io/ioutil"
 	"log"
+	"os"
 	"strconv"
 	"strings"
 )
@@ -18,8 +18,8 @@ func getWindowSum(items []int, idx int) int {
 	return sum(items[idx : idx+3])
 }
 
-func d1() {
-	bcontent, err := ioutil.ReadFile("1.input")
+func D1() {
+	bcontent, err := os.ReadFile("1.input")
 
 	if err != nil {
 		log.Fatal(err)

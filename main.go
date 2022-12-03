@@ -13,27 +13,27 @@ func main() {
 
 	switch day {
 	case 1:
-		d1()
+		D1()
 
 		break
 	case 2:
 		if part == 1 {
-			d2p1()
+			D2p1()
 		} else {
-			d2p2()
+			D2p2()
 		}
 
 		break
 	case 3:
 		if part == 1 {
-			d3p1()
+			D3p1()
 		} else {
-			d3p2()
+			D3p2()
 		}
 
 		break
 	case 4:
-		d4()
+		D4()
 
 		break
 	default:
