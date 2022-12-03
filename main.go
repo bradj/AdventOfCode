@@ -36,6 +36,10 @@ func main() {
 		d4()
 
 		break
+	case 5:
+		d5p1()
+
+		break
 	default:
 		fmt.Printf("day %d part %d not found\n", day, part)
 	}

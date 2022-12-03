@@ -1,9 +1,12 @@
 package main
 
-import "strconv"
+import (
+	"strconv"
+	"strings"
+)
 
 func intme(s string) int {
-	i, err := strconv.ParseInt(s, 10, 64)
+	i, err := strconv.ParseInt(strings.Trim(s, " "), 10, 64)
 
 	if err != nil {
 		panic(err)
