@@ -6,6 +6,8 @@ import (
 	"os"
 	"strconv"
 	"strings"
+
+	"github.com/bradj/AdventOfCode/util"
 )
 
 func getWindowSum(items []int, idx int) int {
@@ -15,7 +17,7 @@ func getWindowSum(items []int, idx int) int {
 		return 0
 	}
 
-	return sum(items[idx : idx+3])
+	return util.Sum(items[idx : idx+3])
 }
 
 func D1() {

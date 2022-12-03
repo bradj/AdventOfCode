@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"os"
 	"strings"
+
+	"github.com/bradj/AdventOfCode/util"
 )
 
 type Board struct {
@@ -94,7 +96,7 @@ func D4() {
 		converted := []int{}
 
 		for _, v := range strings.Fields(scanner.Text()) {
-			converted = append(converted, intme(v))
+			converted = append(converted, util.Intme(v))
 		}
 
 		board = append(board, converted)
@@ -117,7 +119,7 @@ func D4() {
 
 	for _, v := range draw {
 		for i := range boards {
-			if boards[i].IsBingo(intme(v)) {
+			if boards[i].IsBingo(util.Intme(v)) {
 				count++
 
 				if count == total {

@@ -11,5 +11,4 @@
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
 
-/2021/2021
-/2022/2022
+/AdventOfCode

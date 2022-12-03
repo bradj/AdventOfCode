@@ -3,37 +3,40 @@ package main
 import (
 	"fmt"
 	"os"
+
+	twentyone "github.com/bradj/AdventOfCode/2021"
+	"github.com/bradj/AdventOfCode/util"
 )
 
 func main() {
-	day := intme(os.Args[1])
-	part := intme(os.Args[2])
+	day := util.Intme(os.Args[1])
+	part := util.Intme(os.Args[2])
 
 	fmt.Printf("running day %d part %d\n", day, part)
 
 	switch day {
 	case 1:
-		D1()
+		twentyone.D1()
 
 		break
 	case 2:
 		if part == 1 {
-			D2p1()
+			twentyone.D2p1()
 		} else {
-			D2p2()
+			twentyone.D2p2()
 		}
 
 		break
 	case 3:
 		if part == 1 {
-			D3p1()
+			twentyone.D3p1()
 		} else {
-			D3p2()
+			twentyone.D3p2()
 		}
 
 		break
 	case 4:
-		D4()
+		twentyone.D4()
 
 		break
 	default:

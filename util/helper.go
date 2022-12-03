@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-func intme(s string) int {
+func Intme(s string) int {
 	i, err := strconv.ParseInt(strings.Trim(s, " "), 10, 64)
 
 	if err != nil {
@@ -15,7 +15,7 @@ func intme(s string) int {
 	return int(i)
 }
 
-func sum(ints []int) int {
+func Sum(ints []int) int {
 	result := 0
 
 	for _, v := range ints {
