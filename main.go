@@ -35,7 +35,7 @@ func year21(day int, part int) {
 func year22(day int, part int) {
 	switch day {
 	case 1:
-		twentytwo.D1p2()
+		twentytwo.D1p1()
 	default:
 		fmt.Printf("day %d part %d not found\n", day, part)
 	}
