@@ -56,7 +56,7 @@ func year22(day int, part int) {
 		if part == 1 {
 			twentytwo.D4p1()
 		} else {
-			panic("no")
+			twentytwo.D4p2()
 		}
 	default:
 		fmt.Printf("day %d part %d not found\n", day, part)
