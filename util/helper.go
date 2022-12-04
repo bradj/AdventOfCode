@@ -40,7 +40,7 @@ type Set interface {
 	Contains() bool
 }
 
-type RuneSet map[rune]bool
+type RuneSet map[rune]struct{}
 
 func (a RuneSet) Contains(item rune) bool {
 	_, ok := a[item]
@@ -49,6 +49,6 @@ func (a RuneSet) Contains(item rune) bool {
 
 func (a RuneSet) Add(item rune) bool {
 	prevL := len(a)
-	a[item] = true
+	a[item] = struct{}{}
 	return len(a) != prevL
 }
