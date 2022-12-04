@@ -18,15 +18,15 @@ func convertRune(char rune) int {
 }
 
 func common(group []string) (rune, error) {
-	common := make(map[rune]map[int]bool)
+	common := make(map[rune]map[int]struct{})
 
 	for idx, line := range group {
 		for _, char := range line {
 			if common[char] == nil {
-				common[char] = make(map[int]bool)
+				common[char] = make(map[int]struct{})
 			}
 
-			common[char][idx] = true
+			common[char][idx] = struct{}{}
 
 			if len(common[char]) == 3 {
 				return char, nil
