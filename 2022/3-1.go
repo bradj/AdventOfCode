@@ -24,7 +24,7 @@ func D3p1() {
 				continue
 			}
 
-			if !set.Exists(char) {
+			if !set.Contains(char) {
 				continue
 			}
 

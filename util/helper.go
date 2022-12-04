@@ -40,11 +40,12 @@ func GetItems(filename string) []string {
 
 type Set interface {
 	Add() bool
+	Contains() bool
 }
 
 type RuneSet map[rune]bool
 
-func (a RuneSet) Exists(item rune) bool {
+func (a RuneSet) Contains(item rune) bool {
 	_, ok := a[item]
 	return ok
 }
