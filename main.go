@@ -46,6 +46,12 @@ func year22(day int, part int) {
 		} else {
 			twentytwo.D2p2()
 		}
+	case 3:
+		if part == 1 {
+			twentytwo.D3p1()
+		} else {
+			twentytwo.D3p2()
+		}
 	default:
 		fmt.Printf("day %d part %d not found\n", day, part)
 	}

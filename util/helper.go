@@ -37,3 +37,20 @@ func GetItems(filename string) []string {
 	content := string(bcontent)
 	return strings.Split(content, "\n")
 }
+
+type Set interface {
+	Add() bool
+}
+
+type RuneSet map[rune]bool
+
+func (a RuneSet) Exists(item rune) bool {
+	_, ok := a[item]
+	return ok
+}
+
+func (a RuneSet) Add(item rune) bool {
+	prevL := len(a)
+	a[item] = true
+	return len(a) != prevL
+}
