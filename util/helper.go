@@ -9,9 +9,8 @@ import (
 
 func Intme(s string) int {
 	i, err := strconv.ParseInt(strings.Trim(s, " "), 10, 64)
-
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
 
 	return int(i)
@@ -19,7 +18,6 @@ func Intme(s string) int {
 
 func Sum(ints []int) int {
 	result := 0
-
 	for _, v := range ints {
 		result += v
 	}
@@ -29,7 +27,6 @@ func Sum(ints []int) int {
 
 func GetItems(filename string) []string {
 	bcontent, err := os.ReadFile(filename)
-
 	if err != nil {
 		log.Fatal(err)
 	}
