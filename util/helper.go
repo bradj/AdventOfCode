@@ -32,6 +32,7 @@ func GetItems(filename string) []string {
 	}
 
 	content := string(bcontent)
+	content = strings.Trim(content, " ")
 	return strings.Split(content, "\n")
 }
 

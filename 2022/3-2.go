@@ -2,8 +2,6 @@ package twenttwo
 
 import (
 	"fmt"
-
-	"github.com/bradj/AdventOfCode/util"
 )
 
 func convertRune(char rune) int {
@@ -37,8 +35,7 @@ func common(group []string) (rune, error) {
 	return ' ', fmt.Errorf("not found")
 }
 
-func D3p2() {
-	groups := util.GetItems("2022/3.input")
+func D3p2(groups []string) {
 	total := 0
 	grpNum := 0
 

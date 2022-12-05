@@ -1,20 +1,13 @@
 package twenttwo
 
 import (
-	"fmt"
-
 	"github.com/bradj/AdventOfCode/util"
 )
 
-func D3p1() {
-	items := util.GetItems("2022/3.input")
+func D3p1(items []string) {
 	total := 0
 
 	for _, item := range items {
-		if item == "" {
-			continue
-		}
-
 		set := util.RuneSet{}
 		half := len(item) / 2
 
@@ -39,6 +32,4 @@ func D3p1() {
 			break
 		}
 	}
-
-	fmt.Printf("total: %d\n", total)
 }

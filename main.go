@@ -47,10 +47,12 @@ func year22(day int, part int) {
 			twentytwo.D2p2()
 		}
 	case 3:
+		items := util.GetItems("2022/3.input")
+
 		if part == 1 {
-			twentytwo.D3p1()
+			twentytwo.D3p1(items)
 		} else {
-			twentytwo.D3p2()
+			twentytwo.D3p2(items)
 		}
 	case 4:
 		if part == 1 {
