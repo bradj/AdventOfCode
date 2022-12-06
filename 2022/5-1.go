@@ -66,13 +66,13 @@ func getTopCrate(stack []string) (int, string) {
 	return idx, stack[idx]
 }
 
-func moveCrates(fidx int, tidx int, amount int, crates [][]string) [][]string {
+func moveCrates(fromCol int, toCol int, amount int, crates [][]string) [][]string {
 	moved := 0
 
 	for moved < amount {
-		_, crate := getTopCrate(crates[fidx])
-		crates[tidx] = slices.Push(crates[tidx], crate)
-		_, crates[fidx] = slices.Pop(crates[fidx])
+		_, crate := getTopCrate(crates[fromCol])
+		crates[toCol] = slices.Push(crates[toCol], crate)
+		_, crates[fromCol] = slices.Pop(crates[fromCol])
 		moved++
 	}
 
