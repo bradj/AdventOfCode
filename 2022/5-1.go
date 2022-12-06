@@ -66,7 +66,7 @@ func getTopCrate(stack []string) (int, string) {
 	return idx, stack[idx]
 }
 
-func moveCrates(fromCol int, toCol int, amount int, crates [][]string) [][]string {
+func moveCratesP1(fromCol int, toCol int, amount int, crates [][]string) [][]string {
 	moved := 0
 
 	for moved < amount {
@@ -79,7 +79,7 @@ func moveCrates(fromCol int, toCol int, amount int, crates [][]string) [][]strin
 	return crates
 }
 
-func performOperation(line string, crates [][]string) [][]string {
+func performOperation(line string, crates [][]string, f func(int, int, int, [][]string) [][]string) [][]string {
 	parts := strings.Split(line, " ")
 	total, err := strconv.Atoi(parts[1])
 	if err != nil {
@@ -96,7 +96,7 @@ func performOperation(line string, crates [][]string) [][]string {
 	}
 	to--
 
-	moveCrates(from, to, total, crates)
+	f(from, to, total, crates)
 
 	return crates
 }
@@ -109,7 +109,7 @@ func D5p1(items []string) {
 			continue // <3 Aoz
 		}
 
-		crates = performOperation(line, crates)
+		crates = performOperation(line, crates, moveCratesP1)
 	}
 
 	fmt.Printf("%s\n", getTopCrates(crates))
