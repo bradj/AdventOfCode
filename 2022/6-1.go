@@ -27,14 +27,12 @@ func D6p1(items []string) {
 	input := items[0]
 
 	last4 := strings.Split(input[:4], "")
-	fmt.Printf("%v\n", last4)
-	if isUnique(last4) == true {
+	if isUnique(last4) {
 		fmt.Println(4)
 		return
 	}
 
 	for idx, val := range input[4:] {
-		// fmt.Printf("idx: %d, val: %c\n", idx, val)
 		last4 = slices.Delete(last4, 0)
 		last4 = slices.Push(last4, string(val))
 
