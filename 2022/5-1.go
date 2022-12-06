@@ -5,6 +5,8 @@ import (
 	"log"
 	"strconv"
 	"strings"
+
+	"github.com/isacikgoz/slices"
 )
 
 func parseCrates(items []string) [][]string {
@@ -30,9 +32,7 @@ func parseCrates(items []string) [][]string {
 			}
 
 			val := string(line[start:end][1])
-			if val == " " {
-				crates[col] = append(crates[col], "")
-			} else {
+			if val != " " {
 				crates[col] = append(crates[col], val)
 			}
 
@@ -62,37 +62,24 @@ func getTopCrates(crates [][]string) []string {
 }
 
 func getTopCrate(stack []string) (int, string) {
-	// fmt.Printf("stack: %v\n", stack)
 	idx := len(stack) - 1
-	for idx >= 0 {
-		val := stack[idx]
-		if val != "" {
-			return idx, val
-		}
-		idx--
-	}
-
-	return 0, ""
+	return idx, stack[idx]
 }
 
-func moveCrates(fidx int, tidx int, amount int, crates *[][]string) {
-	// fmt.Printf("Moving %d crates from %d to %d\n", amount, fidx+1, tidx+1)
+func moveCrates(fidx int, tidx int, amount int, crates [][]string) [][]string {
 	moved := 0
 
 	for moved < amount {
-		movedIdx, crate := getTopCrate((*crates)[fidx])
-		toIdx, _ := getTopCrate((*crates)[tidx])
-		if toIdx+1 == len((*crates)[tidx]) {
-			(*crates)[tidx] = append((*crates)[tidx], crate)
-		} else {
-			(*crates)[tidx][toIdx+1] = crate
-		}
-		(*crates)[fidx][movedIdx] = ""
+		_, crate := getTopCrate(crates[fidx])
+		crates[tidx] = slices.Push(crates[tidx], crate)
+		_, crates[fidx] = slices.Pop(crates[fidx])
 		moved++
 	}
+
+	return crates
 }
 
-func performOperation(line string, crates *[][]string) {
+func performOperation(line string, crates [][]string) [][]string {
 	parts := strings.Split(line, " ")
 	total, err := strconv.Atoi(parts[1])
 	if err != nil {
@@ -110,18 +97,19 @@ func performOperation(line string, crates *[][]string) {
 	to--
 
 	moveCrates(from, to, total, crates)
+
+	return crates
 }
 
 func D5p1(items []string) {
 	crates := parseCrates(items)
 
-	// for _, line := range items[len(crates)+1 : len(crates)+10] {
 	for _, line := range items[len(crates)+1:] {
 		if line == "" {
 			continue // <3 Aoz
 		}
 
-		performOperation(line, &crates)
+		crates = performOperation(line, crates)
 	}
 
 	fmt.Printf("%s\n", getTopCrates(crates))
