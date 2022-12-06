@@ -19,8 +19,7 @@ func contains(start1 int, end1 int, start2 int, end2 int) bool {
 	return false
 }
 
-func D4p1() {
-	items := util.GetItems("2022/4.input")
+func D4p1(items []string) {
 	total := 0
 
 	for _, line := range items {

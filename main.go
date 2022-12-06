@@ -55,10 +55,21 @@ func year22(day int, part int) {
 			twentytwo.D3p2(items)
 		}
 	case 4:
+		items := util.GetItems("2022/4.input")
+
 		if part == 1 {
-			twentytwo.D4p1()
+			twentytwo.D4p1(items)
 		} else {
-			twentytwo.D4p2()
+			twentytwo.D4p2(items)
+		}
+	case 5:
+		items := util.GetItems("2022/5.input")
+		// items := util.GetItems("2022/5-test.input")
+
+		if part == 1 {
+			twentytwo.D5p1(items)
+		} else {
+			twentytwo.D5p2(items)
 		}
 	default:
 		fmt.Printf("day %d part %d not found\n", day, part)
