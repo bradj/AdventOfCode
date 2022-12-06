@@ -76,8 +76,10 @@ func year22(day int, part int) {
 
 		if part == 1 {
 			twentytwo.D6p1(items)
-		} else {
+		} else if part == 2 {
 			twentytwo.D6p2(items)
+		} else {
+			twentytwo.D6p2_2(items)
 		}
 	default:
 		fmt.Printf("day %d part %d not found\n", day, part)
