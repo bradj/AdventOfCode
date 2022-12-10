@@ -81,6 +81,15 @@ func year22(day int, part int) {
 		} else {
 			twentytwo.D6p2_2(items)
 		}
+	case 7:
+		// items := util.GetItems("2022/7-test.input")
+		items := util.GetItems("2022/7.input")
+
+		if part == 1 {
+			twentytwo.D7p1(items)
+		} else {
+			twentytwo.D7p2(items)
+		}
 	default:
 		fmt.Printf("day %d part %d not found\n", day, part)
 	}
